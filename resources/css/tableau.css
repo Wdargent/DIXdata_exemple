@@ -12,6 +12,7 @@
     border: 1px solid #ccc; /* bordure grise */
     padding: 8px;
     text-align: center;
+    min-width: 100px;
   }
   
   .table-header {
@@ -21,14 +22,17 @@
   
   .table-body .table-row:nth-child(odd) {
     background-color: #ffffff; /* blanc */
+    transition: all 0.2s ease;
   }
   
   .table-body .table-row:nth-child(even) {
     background-color: #e6f0ff; /* bleu clair */
+    transition: all 0.2s ease;
   }
 
   .table-body .table-row:hover {
     background-color: #d9edf7; /* bleu/gris clair au survol */
+    transition: all 0.2s ease;
   }
 
   
@@ -36,18 +40,38 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border: 2px solid #007bff;      /* couleur de bordure */
+    border: 2px solid #003366;      /* couleur de bordure */
     border-radius: 6px;             /* coins arrondis */
-    color: #007bff;                 /* couleur du crayon */
+    color: #003366;                 /* couleur du crayon */
     transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .edit-btn:hover {
-    background-color: #007bff;      /* fond prend la couleur du bord */
+    background-color: #003366;      /* fond prend la couleur du bord */
     color: white;                   /* crayon devient blanc */
+}
+
+.new-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;      /* couleur de bordure */
+    border-radius: 6px;             /* coins arrondis */
+    color: white;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    padding: 0 3px;
+}
+
+.new-btn:hover {
+    background-color: white;
+    color: #003366;
+}
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
 }
 
 .edit-btn svg {
@@ -71,6 +95,7 @@
     align-items: center;
     gap: 6px;
     width: 100%;
+    justify-content: space-between;
 }
 
 .icon_table {
