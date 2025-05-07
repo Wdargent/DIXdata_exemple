@@ -1,0 +1,27 @@
+.table-custom {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table-cell {
+    border: 1px solid #ccc; /* bordure grise */
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .table-header {
+    background-color: #003366; /* fond bleu foncé */
+    color: white;
+  }
+  
+  .table-body .table-row:nth-child(odd) {
+    background-color: #ffffff; /* blanc */
+  }
+  
+  .table-body .table-row:nth-child(even) {
+    background-color: #e6f0ff; /* bleu clair */
+  }
+
+  .table-body .table-row:hover {
+    background-color: #d9edf7; /* bleu/gris clair au survol */
+  }
