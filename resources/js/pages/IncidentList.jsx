@@ -26,7 +26,9 @@ const IncidentList = () => {
 
   return (
     <div>
-      <h1>Liste des Incidents</h1>
+      <div class="title_table">
+        <h1 class="title_header">Liste des Incidents</h1>
+      </div>
       <div class="table-wrapper">
         <table class="table-custom">
           <thead class="table-header">

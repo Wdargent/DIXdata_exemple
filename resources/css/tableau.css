@@ -55,3 +55,16 @@
     height: 16px;
     fill: currentColor;             /* permet de changer la couleur via 'color' */
 }
+
+.title_table { 
+    padding: 20px 5%;   
+    font-size: 120%;
+}
+
+.title_header {
+    font-weight: bold;
+    background-color: #003366; /* fond bleu foncé */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
