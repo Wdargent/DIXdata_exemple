@@ -1,3 +1,8 @@
+.table-wrapper {
+    padding: 0 5%;        
+    overflow-x: auto;
+  }
+  
 .table-custom {
     border-collapse: collapse;
     width: 100%;
@@ -25,3 +30,28 @@
   .table-body .table-row:hover {
     background-color: #d9edf7; /* bleu/gris clair au survol */
   }
+
+  
+.edit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #007bff;      /* couleur de bordure */
+    border-radius: 6px;             /* coins arrondis */
+    color: #007bff;                 /* couleur du crayon */
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #007bff;      /* fond prend la couleur du bord */
+    color: white;                   /* crayon devient blanc */
+}
+
+.edit-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;             /* permet de changer la couleur via 'color' */
+}
