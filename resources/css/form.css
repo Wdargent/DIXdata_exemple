@@ -44,6 +44,7 @@
   color: #16ad02;
   transition: all 0.2s ease;
   cursor: pointer;
+  padding: 2px 4px;
 }
 
 .validate-btn-form:hover {

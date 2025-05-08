@@ -80,7 +80,7 @@ try {
           </div>
 
           <button type="submit" className='validate-btn-form'>
-            {incident?.id ? 'Mettre à jour' : 'Créer'}
+            {incident?.id ? 'Mettre à jour' : '+ Créer'}
           </button>
           
           {message && <p>{message}</p>}
