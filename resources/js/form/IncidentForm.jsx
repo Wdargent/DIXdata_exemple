@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LexicalEditor from '../components/TextEditor'
 
 const IncidentForm = ({ incident = null }) => {
   const [titre, setTitre] = useState(incident?.titre || '');
@@ -12,9 +13,12 @@ const IncidentForm = ({ incident = null }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Convertir description en chaîne JSON avant l'envoi
+    const formattedDescription = JSON.stringify(description);
+
     const data = {
       titre,
-      description,
+      description: formattedDescription,
       visible
     };
 
@@ -66,10 +70,7 @@ try {
 
           <div className="form-group">
             <label>Description :</label>
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
+            <LexicalEditor onChangeContent={setDescription} />
           </div>
 
           <div className="form-group">
@@ -84,7 +85,7 @@ try {
           <button type="submit" className='validate-btn-form'>
             {incident?.id ? 'Mettre à jour' : 'Créer'}
           </button>
-
+          
           {message && <p>{message}</p>}
         </form>
       </div>

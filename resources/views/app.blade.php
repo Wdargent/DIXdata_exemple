@@ -10,6 +10,7 @@
         'resources/css/app.css',
         'resources/css/tableau.css',
         'resources/css/form.css', 
+        'resources/css/editor.css', 
         'resources/js/app.jsx'
         ])
 </head>

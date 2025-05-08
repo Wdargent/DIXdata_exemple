@@ -35,7 +35,12 @@ class IncidentController extends Controller
         ]);
 
         $incident = Incident::create($request->all());
-        return response()->json($incident, 201);
+        $incident->titre = $request->input('titre');
+        $incident->description = json_encode($request->input('description'));  // On stocke le contenu JSON
+        $incident->visible = $request->input('visible');
+        $incident->save();
+    
+        return response()->json($incident);
     }
 
     /**
