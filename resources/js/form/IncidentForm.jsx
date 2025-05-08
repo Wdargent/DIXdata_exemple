@@ -13,12 +13,9 @@ const IncidentForm = ({ incident = null }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Convertir description en chaîne JSON avant l'envoi
-    const formattedDescription = JSON.stringify(description);
-
     const data = {
       titre,
-      description: formattedDescription,
+      description,
       visible
     };
 
@@ -70,7 +67,7 @@ try {
 
           <div className="form-group">
             <label>Description :</label>
-            <LexicalEditor onChangeContent={(e) => setDescription(e.target.value)} />
+            <LexicalEditor onChangeContent={(e) => setDescription(e)} />
           </div>
 
           <div className="form-group">

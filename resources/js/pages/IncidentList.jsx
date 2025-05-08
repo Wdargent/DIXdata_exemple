@@ -91,7 +91,7 @@ const IncidentList = () => {
             {incidents.map((incident) => (
               <tr class="table-row" key={incident.id}>
                 <td class="table-cell">{incident.titre}</td>
-                <td class="table-cell">{incident.description}</td>
+                <td class="table-cell" dangerouslySetInnerHTML={{ __html: incident.description }} />
                 <td class="table-cell">{new Date(incident.created_at).toLocaleString()}</td>
                 <td class="table-cell">{new Date(incident.updated_at).toLocaleString()}</td>
                 <td class="table-cell">{incident.visible ? 'Oui' : 'Non'}</td>

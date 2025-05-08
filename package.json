@@ -15,6 +15,7 @@
         "vite": "^6.2.4"
     },
     "dependencies": {
+        "@lexical/html": "^0.31.0",
         "@lexical/react": "^0.31.0",
         "@lexical/rich-text": "^0.31.0",
         "lexical": "^0.31.0",

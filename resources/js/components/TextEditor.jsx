@@ -6,6 +6,7 @@ import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { FORMAT_TEXT_COMMAND } from 'lexical';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $generateHtmlFromNodes } from '@lexical/html';
 
 const theme = {};
 
@@ -17,7 +18,6 @@ const editorConfig = {
   },
 };
 
-// ✅ Le bouton est un composant enfant du composer
 function Toolbar() {
   const [editor] = useLexicalComposerContext();
 
@@ -27,34 +27,45 @@ function Toolbar() {
 
   return (
     <div className="toolbar">
-      <button type="button" onClick={handleBoldClick} class="bold-btn icon-btn"><b>G</b></button>
+      <button type="button" onClick={handleBoldClick} className="bold-btn icon-btn"><b>G</b></button>
     </div>
   );
 }
 
 function Placeholder() {
-    return <div className="editor-placeholder">Écris ici...</div>;
-  }
+  return <div className="editor-placeholder">Écris ici...</div>;
+}
 
-export default function LexicalEditor({ onChangeContent }) {
+function EditorWithOnChange({ onChangeContent }) {
+  const [editor] = useLexicalComposerContext();
+
   const onChange = useCallback((editorState) => {
     editorState.read(() => {
-      const json = editorState.toJSON();
-      onChangeContent(json);
+      // On s'assure qu'il y a du contenu avant de transmettre
+      const root = editor.getRootElement();
+      if (root && root.innerHTML.trim() !== '<br>' && root.textContent.trim() !== '') {
+        const html = $generateHtmlFromNodes(editor, null); // Convertir en HTML
+        onChangeContent(html); // Passer le contenu au parent
+      }
     });
-  }, [onChangeContent]);
+  }, [editor, onChangeContent]);
 
+  return <OnChangePlugin onChange={onChange} />;
+}
+
+// Composant principal de l'éditeur
+export default function TextEditor({ onChangeContent }) {
   return (
     <LexicalComposer initialConfig={editorConfig}>
-    <div class='editor-and-toolbar'>
+      <div className="editor-and-toolbar">
         <Toolbar />
         <div className="editor-container">
-            <RichTextPlugin
-                contentEditable={<ContentEditable className="editor-input" />}
-                placeholder={<Placeholder />}
-            />
-            <HistoryPlugin />
-            <OnChangePlugin onChange={onChange} />
+          <RichTextPlugin
+            contentEditable={<ContentEditable className="editor-input" />}
+            placeholder={<Placeholder />}
+          />
+          <HistoryPlugin />
+          <EditorWithOnChange onChangeContent={onChangeContent} />
         </div>
       </div>
     </LexicalComposer>
