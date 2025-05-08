@@ -51,42 +51,44 @@ try {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Créer un incident</h2>
+    <div class="form-wrapper">
+      <div class="form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Titre :</label>
+            <input
+              type="text"
+              value={titre}
+              onChange={(e) => setTitre(e.target.value)}
+              required
+            />
+          </div>
 
-      <div>
-        <label>Titre :</label>
-        <input
-          type="text"
-          value={titre}
-          onChange={(e) => setTitre(e.target.value)}
-          required
-        />
+          <div className="form-group">
+            <label>Description :</label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Visible :</label>
+            <input
+              type="checkbox"
+              checked={visible}
+              onChange={(e) => setVisible(e.target.checked)}
+            />
+          </div>
+
+          <button type="submit" className='validate-btn-form'>
+            {incident?.id ? 'Mettre à jour' : 'Créer'}
+          </button>
+
+          {message && <p>{message}</p>}
+        </form>
       </div>
-
-      <div>
-        <label>Description :</label>
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <label>Visible :</label>
-        <input
-          type="checkbox"
-          checked={visible}
-          onChange={(e) => setVisible(e.target.checked)}
-        />
-      </div>
-
-      <button type="submit">
-        {incident?.id ? 'Mettre à jour' : 'Créer'}
-      </button>
-
-      {message && <p>{message}</p>}
-    </form>
+    </div>
   );
 };
 

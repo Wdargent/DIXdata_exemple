@@ -6,7 +6,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Laravel + React</title>
     @viteReactRefresh
-    @vite(['resources/css/app.css','resources/css/tableau.css', 'resources/js/app.jsx'])
+    @vite([
+        'resources/css/app.css',
+        'resources/css/tableau.css',
+        'resources/css/form.css', 
+        'resources/js/app.jsx'
+        ])
 </head>
 <body>
     <div id="root"></div>
