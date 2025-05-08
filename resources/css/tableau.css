@@ -19,7 +19,6 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    word-break: break-all;
     min-width: 100px;
   }
   
