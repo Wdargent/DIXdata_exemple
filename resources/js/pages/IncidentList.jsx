@@ -35,7 +35,7 @@ const IncidentList = () => {
           </span>
           <div>Liste des Incidents</div>
           <a class="new-btn" href={`/incidents/new`}>
-            <div>Créer un Incident</div>
+            <div>+ Créer un Incident</div>
           </a>
         </h1>
       </div>
