@@ -1,17 +1,25 @@
 .table-wrapper {
     padding: 0 5%;        
-    overflow-x: auto;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
   }
   
 .table-custom {
-    border-collapse: collapse;
-    width: 100%;
+  width: 100%;
+  max-width: 100%;        /* Limite la largeur de la table au conteneur */
+  border-collapse: collapse;
+  table-layout: auto;     /* Pour que les colonnes prennent la largeur nécessaire au contenu */
   }
   
   .table-cell {
-    border: 1px solid #ccc; /* bordure grise */
+    border: 1px solid #ccc;
     padding: 8px;
     text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    word-break: break-all;
     min-width: 100px;
   }
   

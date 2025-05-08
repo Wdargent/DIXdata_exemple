@@ -70,7 +70,7 @@ try {
 
           <div className="form-group">
             <label>Description :</label>
-            <LexicalEditor onChangeContent={setDescription} />
+            <LexicalEditor onChangeContent={(e) => setDescription(e.target.value)} />
           </div>
 
           <div className="form-group">

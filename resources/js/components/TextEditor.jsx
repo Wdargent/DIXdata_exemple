@@ -27,10 +27,14 @@ function Toolbar() {
 
   return (
     <div className="toolbar">
-      <button type="button" onClick={handleBoldClick}><b>G</b></button>
+      <button type="button" onClick={handleBoldClick} class="bold-btn icon-btn"><b>G</b></button>
     </div>
   );
 }
+
+function Placeholder() {
+    return <div className="editor-placeholder">Écris ici...</div>;
+  }
 
 export default function LexicalEditor({ onChangeContent }) {
   const onChange = useCallback((editorState) => {
@@ -42,15 +46,16 @@ export default function LexicalEditor({ onChangeContent }) {
 
   return (
     <LexicalComposer initialConfig={editorConfig}>
-      <Toolbar />
-
-      <div className="editor-container">
-        <RichTextPlugin
-          contentEditable={<ContentEditable className="editor-input" />}
-          placeholder={<div className="editor-placeholder">Écris ici...</div>}
-        />
-        <HistoryPlugin />
-        <OnChangePlugin onChange={onChange} />
+    <div class='editor-and-toolbar'>
+        <Toolbar />
+        <div className="editor-container">
+            <RichTextPlugin
+                contentEditable={<ContentEditable className="editor-input" />}
+                placeholder={<Placeholder />}
+            />
+            <HistoryPlugin />
+            <OnChangePlugin onChange={onChange} />
+        </div>
       </div>
     </LexicalComposer>
   );

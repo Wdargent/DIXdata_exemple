@@ -1,9 +1,51 @@
-.editor-input {
+.editor-container {
     border: 1px solid #ccc;
+    border-radius: 4px;
     min-height: 150px;
     padding: 10px;
+    position: relative;
+    flex: 1;
+  }
+
+.editor-input {
+    min-height: 150px;
+    outline: none;
     font-size: 16px;
   }
-  .editor-placeholder {
-    color: #aaa;
+
+.editor-placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #999;
+    pointer-events: none;
+    user-select: none;
   }
+
+.editor-and-toolbar {
+    flex: 1;
+}
+
+.toolbar {
+    flex: 1;
+    border-radius: 4px;
+    background-color: #ccc;
+    margin: 4px 0;
+    padding: 5px;
+}
+
+.bold-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    border-radius: 6px;
+    color: #000;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+.bold-btn:hover {
+    background-color: #000;
+    color: white;
+}
